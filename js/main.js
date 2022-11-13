@@ -1,29 +1,6 @@
-class Producto {
-    constructor(idProducto, nombreProducto, precioProducto, imgProducto){
-        this.idProducto = idProducto;
-        this.nombreProducto = nombreProducto;
-        this.precioProducto = precioProducto;
-        this.imgProducto = imgProducto;
-        this.cantidadProducto = 1;
-    }
-    sumaIva(){
-        this.precioProducto = this.precioProducto * 1.21;
-    }
-}
+// CARRITO DE COMPRAS "REMES"
 
-const termoGrande = new Producto (1, "Termo Grande", 9500, "img/termosNegros.png");
-const termoChico = new Producto (2, "Termo Chico", 3500, "img/termos_bnbl.png")
-const tazaBlanca = new Producto (3, "Taza Blanca", 2500, "img/TazasBlancas.png");
-const tazaMarron = new Producto (4, "Taza Marrón", 2500, "img/tazasMarrones.png")
-const remera = new Producto (5, "Remera", 3000, "img/remeras_blancas.png");
-const bodyBebe = new Producto (6,"Body de bebé", 1500, "img/ropa_bebe.png");
-const remeraLargaHombre = new Producto (7, "Remera manga larga Hombre", 5000, "img/remeraLargaBl_Hombre.png");
-const remeraLargaMujer = new Producto (8, "Remera manga larga de Mujer", 4500, "img/remera_largaRs_Mujer.png");
-const buzoHombre = new Producto (9, "Buzo Hombre", 9000, "img/buzo_hombre.png");
-const buzoMujer = new Producto (10, "Buzo Mujer", 8500, "img/buzo_mujer.png");
-
-const producto = [termoGrande, termoChico, tazaBlanca, tazaMarron, remera, bodyBebe, remeraLargaHombre, remeraLargaMujer, buzoHombre, buzoMujer];
-
+const producto = "./json/listaProductos.json";
 let carritoDeCompras = [];
 
 if(localStorage.getItem("carrito")){
@@ -32,8 +9,10 @@ if(localStorage.getItem("carrito")){
 
 const divCards = document.getElementById("divCards");
 
-const cardsProductos = () => {
-    producto.forEach((productos) => {
+const cardsProductos = async () => {
+    const respuesta = await fetch(producto);
+    const productosJson = await respuesta.json();
+    productosJson.forEach((productos) => {
         const card = document.createElement("div");
         card.classList.add("col-md-6", "col-sm-12");
         card.innerHTML = `
@@ -64,8 +43,10 @@ const cardsProductos = () => {
     });  
 }
 
-const agregarAlCarrito = (idProducto) => {
-    const productos = producto.find((productos) => productos.idProducto === idProducto);
+const agregarAlCarrito = async (idProducto) => {
+    const respuesta = await fetch(producto);
+    const productosJson = await respuesta.json();
+    const productos = productosJson.find((productos) => productos.idProducto === idProducto);
     const productoEnCarrito = carritoDeCompras.find((productos) => productos.idProducto === idProducto);
     if(productoEnCarrito){
         productoEnCarrito.cantidadProducto++;
@@ -100,7 +81,7 @@ const mostrarCarrito = () => {
                 <h5 class="card-title tit_carrito"> ${productos.nombreProducto} </h5>
                 <p class="card-text txt_carrito"> ${productos.precioProducto} </p>
                 <p class="card-text txt_carrito"> ${productos.cantidadProducto} </p>
-                <button class="btn btn-primary text-center" id= "eliminar${productos.idProducto}"> Eliminar </button>
+                <button class="btn btn-danger text-center" id= "eliminar${productos.idProducto}"> Eliminar </button>
             </div>
         </div>
         `
@@ -163,10 +144,10 @@ const total_compra = document.getElementById("total_compra");
 const descuento_compra = document.getElementById("descuento_compra");
 const cuotas_compra = document.getElementById("cuotas_compra");
 
-
+/*
 for (const productos of producto){
     productos.sumaIva();
-}
+}*/
 
 const calcularTotalCompra = () => {
     let totalDeCompra = 0;
@@ -197,7 +178,7 @@ comprar.addEventListener("click", () => {
     Swal.fire({
         title: "Desea ir a pagar?",
         icon: "question",
-        backdrop: "#B7950B",
+        backdrop: "#fff",
         confirmButtonText: "Aceptar",
         showCancelButton: true,
         cancelButtonText: "Cancelar",
@@ -208,7 +189,7 @@ comprar.addEventListener("click", () => {
             Swal.fire({
                 title: "Muchas gracias por su compra!!",
                 icon: "success",
-                backdrop: "#B7950B",
+                backdrop: "#fff",
                 confirmButtonText: "Aceptar",
                 confirmButtonColor: "#0d6efd",
             })

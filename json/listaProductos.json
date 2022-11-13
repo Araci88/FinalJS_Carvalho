@@ -1,0 +1,12 @@
+[
+    {"idProducto": 1, "nombreProducto": "Termo Grande", "precioProducto": 9500, "cantidadProducto": 1, "imgProducto": "img/termosNegros.png"},
+    {"idProducto": 2, "nombreProducto": "Termo Chico", "precioProducto": 3500, "cantidadProducto": 1, "imgProducto": "img/termos_bnbl.png"},
+    {"idProducto": 3, "nombreProducto": "Taza Blanca", "precioProducto": 2500, "cantidadProducto": 1, "imgProducto": "img/TazasBlancas.png"},
+    {"idProducto": 4, "nombreProducto": "Taza Marrón", "precioProducto": 2500, "cantidadProducto": 1, "imgProducto": "img/tazasMarrones.png"},
+    {"idProducto": 5, "nombreProducto": "Remera", "precioProducto": 3000, "cantidadProducto": 1, "imgProducto": "img/remeras_blancas.png"},
+    {"idProducto": 6, "nombreProducto": "Body de bebé", "precioProducto": 1500, "cantidadProducto": 1, "imgProducto": "img/ropa_bebe.png"},
+    {"idProducto": 7, "nombreProducto": "Remera manga larga Hombre", "precioProducto": 5000, "cantidadProducto": 1, "imgProducto": "img/remeraLargaBl_Hombre.png"},
+    {"idProducto": 8, "nombreProducto": "Remera manga larga de Mujer", "precioProducto": 4500, "cantidadProducto": 1, "imgProducto": "img/remera_largaRs_Mujer.png"},
+    {"idProducto": 9, "nombreProducto": "Buzo Hombre", "precioProducto": 9000, "cantidadProducto": 1, "imgProducto": "img/buzo_hombre.png"},
+    {"idProducto": 10, "nombreProducto": "Buzo Mujer", "precioProducto": 8500, "cantidadProducto": 1, "imgProducto": "img/buzo_mujer.png"}
+]
