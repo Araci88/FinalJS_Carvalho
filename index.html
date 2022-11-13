@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+SC:wght@300&family=Fredoka+One&family=Montserrat:wght@100&family=Oswald:wght@200;300&family=Quicksand:wght@300;400&family=Roboto:wght@300;400&family=Splash&family=The+Nautigal:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Remes | Artículos Sublimables</title>
+</head>
+<body>
+    <header>
+        <div class="div_logo container-fluid justify-content-center">
+            <img class="img_logo" src="img/LogoRemes.png" alt="Logo de Remes">
+        </div>
+
+        <nav class="navbar bg-warning">
+            <div class="container-fluid justify-content-around">
+                <a class="navbar-brand">Bienvenidos a Remes</a>
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" id="ver_carrito"><i class="bi bi-cart"></i></button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Carrito de Compras</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="contenedor_carrito" class="row"></div>
+                            <div class="div_carrito text-center"> 
+                                <p>El total de la compra es de <span id="total_compra"></span> </p>
+                                <p>El total de la compra con el 15% de descuento es de <span id="descuento_compra"></span></p>
+                                <p>Las 3 cuotas sin interés te queda en <span id="cuotas_compra"></span></p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="vaciar_carrito">Vaciar</button>
+                          <button type="button" class="btn btn-primary" id="comprar">Comprar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="titulo_principal"> REMES </h1>
+        <p class="p_titulo">Artículos Sublimables</p>
+    
+        <div class="contenedorCards row" id="divCards"></div>
+
+        <form class="formularioCliente form_cliente text-center" id="formulario" action="">
+            <fieldset>
+                <legend class="text-center">Contactanos</legend>
+
+                <input class="in_form form-control border-success border-dark text-center" placeholder="Ingrese su nombre" type="text" id="nombreCliente">
+
+                <input class="in_form form-control border-success border-dark text-center" placeholder="Ingrese su apellido" type="text" id="apellidoCliente">
+                
+                <input class="in_form form-control border-success border-dark text-center" placeholder="Ingrese su mail" type="mail" id="mailCliente">
+                
+                <textarea class="in_form form-control border-success border-dark text-center" name="" id="comentario" cols="30" rows="10" placeholder="Ingrese su comentario"></textarea>
+                
+                <button class="boton_form btn btn-secondary text-center" type="submit" value="Enviar">Enviar</button>
+                <button class="boton_form btn btn-secondary text-center" type="reset" value="Restablecer">Restablecer</button>
+
+            </fieldset>
+        </form>
+
+    </main>
+
+    <footer class="footer bg-warning">
+        <p class="p_redes">Visitanos en nuestras redes</p>
+        <div class="div_redes">
+            <a class="link_redes" href="https://www.instagram.com/remesarticulos/"><i class="bi bi-instagram"></i></a>
+            <a class="link_redes" href="https://www.facebook.com/remeslp"><i class="bi bi-facebook"></i></a>
+            <a class="link_redes" href="https://wa.me/5492215469467?text=Buenas tardes, quería averiguar por..."><i class="bi bi-whatsapp"></i></a>
+        </div>
+    </footer>
+ 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
