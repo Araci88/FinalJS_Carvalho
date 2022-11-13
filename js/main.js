@@ -75,13 +75,19 @@ const mostrarCarrito = () => {
         const card = document.createElement("div");
         card.classList.add("col-sm-12");
         card.innerHTML = `
-        <div class="card text-center card_carrito">
-            <img src="${productos.imgProducto}" class="card-img-top text-center imgProductos" alt="${productos.nombreProducto}">
-            <div class="card-body body_carrito">
-                <h5 class="card-title tit_carrito"> ${productos.nombreProducto} </h5>
-                <p class="card-text txt_carrito"> ${productos.precioProducto} </p>
-                <p class="card-text txt_carrito"> ${productos.cantidadProducto} </p>
-                <button class="btn btn-danger text-center" id= "eliminar${productos.idProducto}"> Eliminar </button>
+        <div class="card mb-3 text-center card_carrito" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="${productos.imgProducto}" class="img-fluid rounded-start" alt="${productos.nombreProducto}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body body_carrito">
+                        <h5 class="card-title tit_carrito"> ${productos.nombreProducto} </h5>
+                        <p class="card-text txt_carrito"> ${productos.precioProducto} </p>
+                        <p class="card-text txt_carrito"> ${productos.cantidadProducto} </p>
+                        <button class="btn btn-danger text-center" id= "eliminar${productos.idProducto}"> Eliminar </button>
+                    </div>
+                </div>
             </div>
         </div>
         `
@@ -144,15 +150,12 @@ const total_compra = document.getElementById("total_compra");
 const descuento_compra = document.getElementById("descuento_compra");
 const cuotas_compra = document.getElementById("cuotas_compra");
 
-/*
-for (const productos of producto){
-    productos.sumaIva();
-}*/
+const iva = 1.21;
 
 const calcularTotalCompra = () => {
     let totalDeCompra = 0;
     carritoDeCompras.forEach((productos) => {
-        totalDeCompra = totalDeCompra + productos.precioProducto * productos.cantidadProducto;
+        totalDeCompra = totalDeCompra + (productos.precioProducto * productos.cantidadProducto) *iva;
     })
     total_compra.innerHTML = `$${totalDeCompra}`;
 }
@@ -160,7 +163,7 @@ const calcularTotalCompra = () => {
 const calcularDescuentoCompra = () => {
     let descuentoCompra = 0;
     carritoDeCompras.forEach((productos) => {
-        descuentoCompra = descuentoCompra + productos.precioProducto * productos.cantidadProducto - productos.precioProducto * productos.cantidadProducto * 15 / 100;
+        descuentoCompra = descuentoCompra + (productos.precioProducto * productos.cantidadProducto) *iva - (productos.precioProducto * productos.cantidadProducto) *iva * 15 / 100;
     })
     descuento_compra.innerHTML = `$${descuentoCompra.toFixed(2)}`;
 }
@@ -168,7 +171,7 @@ const calcularDescuentoCompra = () => {
 const calcularCuotasCompra = () => {
     let cuotasCompra = 0;
     carritoDeCompras.forEach((productos) => {
-        cuotasCompra = cuotasCompra + (productos.precioProducto * productos.cantidadProducto - productos.precioProducto * productos.cantidadProducto * 15 / 100) / 3;
+        cuotasCompra = cuotasCompra + ((productos.precioProducto * productos.cantidadProducto) *iva - (productos.precioProducto * productos.cantidadProducto) *iva * 15 / 100) / 3;
     })
     cuotas_compra.innerHTML = `$${cuotasCompra.toFixed(2)}`;
 }
@@ -227,4 +230,26 @@ formulario.addEventListener("submit", (e) => {
     localStorage.setItem("cliente", JSON.stringify(cliente));
 
     formulario.reset();
+})
+
+const enviarFormulario = document.getElementById("enviarFormulario");
+enviarFormulario.addEventListener("click", () => {
+    Swal.fire({
+        title: "Desea enviar el formulario?",
+        icon: "question",
+        confirmButtonText: "Aceptar",
+        showCancelButton: true,
+        cancelButtonText: "Cancelar",
+        cancelButtonColor: "#0d6efd",
+        confirmButtonColor: "#0d6efd",
+    }).then((result) => {
+        if (result.isConfirmed){
+            Swal.fire({
+                title: "En breve nos estaremos comunicando con usted",
+                icon: "success",
+                confirmButtonText: "Aceptar",
+                confirmButtonColor: "#0d6efd",
+            })
+        }
+    })
 })

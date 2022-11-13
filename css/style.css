@@ -12,6 +12,12 @@
     font-size: 30px;
     color: white;
 }
+.conteoCarrito{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    color: white;
+    justify-content: center;
+}
 .titulo_principal{
     font-family: 'Fredoka One', cursive;
     font-size: 100px;
@@ -40,10 +46,8 @@
     margin-top: 20px;
 }
 .card_carrito{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 10rem;
+    width: 80%;
+    margin-left: 50px;
 }
 .div_carrito{
     margin-top: 30px;

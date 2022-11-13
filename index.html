@@ -21,7 +21,7 @@
         <nav class="navbar bg-warning">
             <div class="container-fluid justify-content-around">
                 <a class="navbar-brand">Bienvenidos a Remes</a>
-                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" id="ver_carrito"><i class="bi bi-cart"></i></button>
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" id="ver_carrito"><span class = "conteoCarrito">Ver Carrito</span><i class="bi bi-cart"></i></button>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-scrollable">
                       <div class="modal-content">
@@ -66,8 +66,8 @@
                 
                 <textarea class="in_form form-control border-success border-dark text-center" name="" id="comentario" cols="30" rows="10" placeholder="Ingrese su comentario"></textarea>
                 
-                <button class="boton_form btn btn-secondary text-center" type="submit" value="Enviar">Enviar</button>
-                <button class="boton_form btn btn-secondary text-center" type="reset" value="Restablecer">Restablecer</button>
+                <button class="boton_form btn btn-secondary text-center" type="submit" value="Enviar" id="enviarFormulario">Enviar</button>
+                <button class="boton_form btn btn-secondary text-center" type="reset" value="Restablecer" id="restablecerFormulario">Restablecer</button>
 
             </fieldset>
         </form>
